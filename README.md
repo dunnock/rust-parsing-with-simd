@@ -3,6 +3,7 @@
 - wezterm
 - npm
 - npx
+- bat
 
 # How to run presentation
 
