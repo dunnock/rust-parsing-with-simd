@@ -27,7 +27,7 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_micros() as i64 / TIMES as i64;
-    println!("Iter found {spaces} spaces in {time}us");
+    println!("Iter found {spaces} spaces in \x1b[36;1m{time}us\x1b[30;0m:");
 
     // SIMD AVX
     let ts = std::time::Instant::now();
@@ -36,5 +36,5 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_micros() as i64 / TIMES as i64;
-    println!("AVX found {spaces} spaces in {time}us");
+    println!("AVX found {spaces} spaces in \x1b[36;1m{time}us\x1b[30;0m:");
 }

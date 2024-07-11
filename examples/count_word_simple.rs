@@ -2,7 +2,7 @@ use std::hint::black_box;
 
 use simd_parse::count_word_iter;
 
-const TIMES: usize = 100;
+const TIMES: usize = 10;
 
 fn main() {
     let buf = std::fs::read(
@@ -30,5 +30,5 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_micros() as i64 / TIMES as i64;
-    println!("Iter found '{word}' {words} times in {time}us");
+    println!("Iter found '{word}' {words} times in \x1b[36;1m{time}us\x1b[30;0m:");
 }

@@ -1,4 +1,5 @@
 pub mod count_spaces_iter;
+mod count_word_avx;
 
 use simd_parse::{btoi32, prepare_needle_4_256, simd_contains_4};
 
