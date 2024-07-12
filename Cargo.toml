@@ -6,3 +6,4 @@ edition = "2021"
 [profile.release]
 
 [dependencies]
+memchr = "2.7.4"
