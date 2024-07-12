@@ -15,6 +15,7 @@ Slides shou8ld be presented in the following order:
 - intro*.png
 - why*.png
 - usecases*.png
+- libraries*.png
 - disclaimer*.png
 
 ```

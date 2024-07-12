@@ -6,6 +6,10 @@ mod count_word_iter;
 pub use count_word_iter::*;
 mod count_word_avx;
 pub use count_word_avx::*;
+mod count_word_memchr;
+pub use count_word_memchr::*;
+mod count_spaces_memchr;
+pub use count_spaces_memchr::*;
 
 use std::arch::x86_64::{__m256i, _mm256_cmpeq_epi32, _mm256_loadu_si256, _mm256_movemask_epi8};
 
