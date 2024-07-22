@@ -29,8 +29,8 @@ fn main() {
         .map(|_| black_box(count_word_iter(&buf, word.as_bytes())))
         .sum::<i64>()
         / TIMES as i64;
-    let time = ts.elapsed().as_micros() as i64 / TIMES as i64;
-    println!("Iter found '{word}' {words} times in \x1b[36;1m{time}us\x1b[30;0m:");
+    let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
+    println!("Iter found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m:");
 
     // SIMD AVX
     let ts = std::time::Instant::now();
@@ -38,8 +38,8 @@ fn main() {
         .map(|_| black_box(count_word_avx(&buf, word.as_bytes())))
         .sum::<i64>()
         / TIMES as i64;
-    let time = ts.elapsed().as_micros() as i64 / TIMES as i64;
-    println!("AVX found '{word}' {words} times in \x1b[36;1m{time}us\x1b[30;0m:");
+    let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
+    println!("AVX found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m:");
 
     // SIMD memchr
     let ts = std::time::Instant::now();
@@ -47,6 +47,6 @@ fn main() {
         .map(|_| black_box(count_word_memchr(&buf, word.as_bytes())))
         .sum::<i64>()
         / TIMES as i64;
-    let time = ts.elapsed().as_micros() as i64 / TIMES as i64;
-    println!("memchr found '{word}' {words} times in \x1b[36;1m{time}us\x1b[30;0m:");
+    let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
+    println!("memchr found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m:");
 }
