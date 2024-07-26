@@ -1,3 +1,8 @@
+//! Start this example with following command line:
+//! ```sh
+//! RUSTFLAGS="-C target-cpu=native" cargo run --release --example count_words -- enwik8.txt
+//! ````
+
 use std::hint::black_box;
 
 use simd_parse::{count_spaces_avx, count_spaces_iter, count_spaces_memchr};
@@ -27,7 +32,7 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
-    println!("Iter found {spaces} spaces in \x1b[36;1m{time}ms\x1b[30;0m:");
+    println!("Iter found {spaces} spaces in \x1b[36;1m{time}ms\x1b[30;0m");
 
     // SIMD AVX
     let ts = std::time::Instant::now();
@@ -36,7 +41,7 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
-    println!("AVX found {spaces} spaces in \x1b[36;1m{time}ms\x1b[30;0m:");
+    println!("AVX found {spaces} spaces in \x1b[36;1m{time}ms\x1b[30;0m");
 
     // SIMD memchr
     let ts = std::time::Instant::now();
@@ -45,5 +50,5 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
-    println!("memchr found {spaces} spaces in \x1b[36;1m{time}ms\x1b[30;0m:");
+    println!("memchr found {spaces} spaces in \x1b[36;1m{time}ms\x1b[30;0m");
 }

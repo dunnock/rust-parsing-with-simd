@@ -8,6 +8,10 @@ author: Maxim Vorobjov
 keywords: simd,rust,parsing,high performance
 ---
 
+![bg height:100%](slide0.jpg)
+
+---
+
 # Processing texts with SIMD in Rust
 
 Maxim Vorobjov

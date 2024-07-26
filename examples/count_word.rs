@@ -1,3 +1,8 @@
+//! Start this example with following command line:
+//! ```sh
+//! RUSTFLAGS="-C target-cpu=native" cargo run --release --example count_word -- enwik8.txt world
+//! ````
+
 use std::hint::black_box;
 
 use simd_parse::{count_word_avx, count_word_iter, count_word_memchr};
@@ -30,7 +35,7 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
-    println!("Iter found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m:");
+    println!("Iter found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m");
 
     // SIMD AVX
     let ts = std::time::Instant::now();
@@ -39,7 +44,7 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
-    println!("AVX found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m:");
+    println!("AVX found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m");
 
     // SIMD memchr
     let ts = std::time::Instant::now();
@@ -48,5 +53,5 @@ fn main() {
         .sum::<i64>()
         / TIMES as i64;
     let time = ts.elapsed().as_millis() as i64 / TIMES as i64;
-    println!("memchr found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m:");
+    println!("memchr found '{word}' {words} times in \x1b[36;1m{time}ms\x1b[30;0m");
 }
